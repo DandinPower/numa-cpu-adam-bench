@@ -34,17 +34,16 @@ extra_compile_args = ["-fopenmp", "-march=native"]
 if avx_macro:
     extra_compile_args.append(f"-D{avx_macro}")
 
-# Configure the setup
 setup(
-    name="cpu_adam",  # Replace with your package name
-    version="0.1.0",
-    author="YourName",
+    name="cpu_adam",
+    version="0.0.1",
+    author="JosephLiaw",
     description="CPU Adam optimizer with automatic AVX detection",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     ext_modules=[
         CppExtension(
-            name="cpu_adam.cpu_adam_interface",  # Replace with your module name
+            name="cpu_adam.cpu_adam_interface",
             sources=[
                 "src/cpu_adam/cpu_adam_interface.cpp",
                 "src/cpu_adam/cpu_adam_impl.cpp"
